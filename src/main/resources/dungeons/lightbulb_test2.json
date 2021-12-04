@@ -1,0 +1,45 @@
+{
+  "width": 5,
+  "height": 5,
+  "entities": [
+    {
+      "x": 0,
+      "y": 0,
+      "type": "player"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "type": "boulder"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "switch"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "light_bulb_off",
+      "logic": "and"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "boulder"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "switch"
+    },
+    {
+      "x": 9,
+      "y": 9,
+      "type": "exit"
+    }
+  ],
+  "goal-condition": {
+    "goal": "exit"
+  }
+}

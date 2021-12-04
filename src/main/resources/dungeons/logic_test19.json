@@ -1,0 +1,81 @@
+{
+  "width": 10,
+  "height": 10,
+  "entities": [
+    {
+      "x": 0,
+      "y": 1,
+      "type": "player"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "switch"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "switch"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "switch"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "switch",
+      "logic": "xor"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "type": "boulder"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "type": "boulder"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "boulder"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "switch_door",
+      "logic": "or"
+    },
+    {
+      "x": 8,
+      "y": 7,
+      "type": "wall"
+    },
+    {
+      "x": 7,
+      "y": 8,
+      "type": "wall"
+    },
+    {
+      "x": 8,
+      "y": 8,
+      "type": "exit"
+    },
+    {
+      "x": 9,
+      "y": 8,
+      "type": "wall"
+    },
+    {
+      "x": 8,
+      "y": 9,
+      "type": "wall"
+    }
+  ],
+  "goal-condition": {
+    "goal": "exit"
+  }
+}

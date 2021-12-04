@@ -1,0 +1,50 @@
+package dungeonmania.staticEntity.logic;
+
+import java.util.List;
+
+import dungeonmania.Dungeon;
+import dungeonmania.entity.Entity;
+import dungeonmania.staticEntity.FloorSwitch;
+
+public class LogicXor implements Logic {
+    /*
+    the entity will be activated if there is 1 and only 1 adjacent activated switch
+    */
+    @Override
+    public boolean logicActivate(Dungeon dungeon, Entity center) {
+        List<FloorSwitch> adjacentSwitches = WireSwitchChecker.getAdjacentSwitches(dungeon, center);
+        // Exclude itself
+        if (center instanceof FloorSwitch && adjacentSwitches.contains((FloorSwitch) center)) {
+            // Prevent edge cases from not logic
+            // If there is a not switch connected to another switch, all wires are false
+            if (
+                adjacentSwitches.stream().filter(e -> e.getLogic() instanceof LogicNot).findAny().orElse(null) != null
+            ) {
+                return false;
+            }
+            adjacentSwitches.remove((FloorSwitch) center);
+        }
+        // Prevent edge cases from not logic
+        // If there is a not switch connected to another switch, all wires are false
+        if (
+            adjacentSwitches.stream().filter(e -> e.getLogic() instanceof LogicNot).findAny().orElse(null) != null
+        ) {
+            return false;
+            }
+        int activated = 0;
+        // Must have only 1 adjacent activated switch
+        for (FloorSwitch switches: adjacentSwitches) {
+            // If there triggered switches, wire will be triggered as well
+            // Count activated switches
+            if (switches.getTriggered()) activated += 1;
+        }
+        if (activated == 1) return true; 
+        // No switches were activated or more than 1 were activated
+        return false;
+    }
+
+    @Override
+    public String getLogicString() {
+        return "xor";
+    }
+}

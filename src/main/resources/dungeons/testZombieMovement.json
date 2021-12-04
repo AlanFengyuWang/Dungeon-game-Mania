@@ -1,0 +1,20 @@
+{
+    "entities": [
+      {
+        "x": 0,
+        "y": 0,
+        "type": "player"
+      },
+      {
+        "x": 8,
+        "y": 3,
+        "type": "zombie_toast"
+      }
+    ],
+    "width": 15,
+    "height": 5,
+    "goal-condition": {
+      "goal": "exit"
+    }
+  }
+  
